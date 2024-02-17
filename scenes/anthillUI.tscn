@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj6le1y0gtwx7"]
+
+[ext_resource type="Script" path="res://scenes/anthillUI.cs" id="1_pub72"]
+[ext_resource type="Resource" uid="uid://bkl5c1msn3c0v" path="res://r.tres" id="2_fjxd3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ijqck"]
+font_size = 33
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -728.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pub72")
+rSO = ExtResource("2_fjxd3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 280.0
+offset_bottom = 136.0
+text = "Health:"
+label_settings = SubResource("LabelSettings_ijqck")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 136.0
+offset_right = 280.0
+offset_bottom = 224.0
+text = "Currency:"
+label_settings = SubResource("LabelSettings_ijqck")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 232.0
+offset_right = 232.0
+offset_bottom = 336.0
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 376.0
+offset_right = 232.0
+offset_bottom = 480.0
+
+[connection signal="button_down" from="Button" to="." method="_on_worker_button_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_warrior_button_down"]

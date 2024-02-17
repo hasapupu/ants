@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://duvn8x68tfm82"]
+
+[ext_resource type="Theme" uid="uid://c7msp4hqw21yi" path="res://button.tres" id="1_6njg5"]
+[ext_resource type="Script" path="res://scenes/daddyScript.cs" id="1_cirdb"]
+[ext_resource type="Script" path="res://scenes/levelSelect.cs" id="3_mivkg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p86j3"]
+font_size = 45
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cirdb")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 374.0
+offset_right = 1527.0
+offset_bottom = 783.0
+scale = Vector2(0.578199, 0.661224)
+label_settings = SubResource("LabelSettings_p86j3")
+
+[node name="Button" type="Button" parent="Label"]
+layout_mode = 0
+offset_left = -1098.24
+offset_top = -565.618
+offset_right = -1090.24
+offset_bottom = -557.618
+theme = ExtResource("1_6njg5")
+script = ExtResource("3_mivkg")
+name = "demoButton"

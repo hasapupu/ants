@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0glha7ji0bdt"]
+
+[ext_resource type="Script" path="res://boulderUI.cs" id="1_vj07k"]
+[ext_resource type="Resource" uid="uid://bkl5c1msn3c0v" path="res://r.tres" id="2_1smyp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ijqck"]
+font_size = 33
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -728.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vj07k")
+strName = "Rock"
+strValue = "5 "
+rSO = ExtResource("2_1smyp")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 280.0
+offset_bottom = 136.0
+label_settings = SubResource("LabelSettings_ijqck")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 136.0
+offset_right = 280.0
+offset_bottom = 488.0
+label_settings = SubResource("LabelSettings_ijqck")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 440.0
+offset_right = 296.0
+offset_bottom = 616.0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

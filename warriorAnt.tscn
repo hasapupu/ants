@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://koqxgyb31ao2"]
+
+[ext_resource type="Script" path="res://rewrittenWarrior.cs" id="1_40vl6"]
+[ext_resource type="Resource" uid="uid://bkl5c1msn3c0v" path="res://r.tres" id="2_wj4nf"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_al61j"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7fer3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_47clf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jhmkb"]
+size = Vector3(0.253836, 0.202368, 0.171359)
+
+[node name="WarriorAnt" type="CharacterBody3D"]
+transform = Transform3D(0.730885, 0, 0, 0, 0.718866, 0, 0, 0, 2.85065, 0, 0, 0)
+axis_lock_linear_y = true
+axis_lock_angular_y = true
+script = ExtResource("1_40vl6")
+rSO = ExtResource("2_wj4nf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.156386, 0, 0, 0, 0.112279, 0, 0, 0, 0.154175, 0, 0, 0.0328946)
+shape = SubResource("ConvexPolygonShape3D_al61j")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.149848, 0, 0, 0, 0.123938, 0, 0, 0, 0.121378, 0, 0, 0.0134108)
+mesh = SubResource("BoxMesh_7fer3")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(5.30706, 0, 0, 0, 1, 0, 0, 0, 1.36, 0, 0, 0)
+shape = SubResource("CylinderShape3D_47clf")
+
+[node name="Area3D2" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0395896)
+shape = SubResource("BoxShape3D_jhmkb")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D2" to="." method="_on_area_3d_2_body_entered"]

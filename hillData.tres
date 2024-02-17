@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bpm3gaikno0pn"]
+
+[ext_resource type="Script" path="res://resources.cs" id="1_lqwgn"]
+
+[resource]
+script = ExtResource("1_lqwgn")
+hillHealth = 0
+currencyAmount = 0

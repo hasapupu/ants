@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://byql6f4tr1kd3"]
+
+[ext_resource type="Script" path="res://antScript.cs" id="1_i2ccu"]
+[ext_resource type="Resource" uid="uid://bkl5c1msn3c0v" path="res://r.tres" id="2_m5xt2"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_al61j"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7fer3"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(0.730885, 0, 0, 0, 0.718866, 0, 0, 0, 2.85065, 0, 0, 0)
+script = ExtResource("1_i2ccu")
+rSO = ExtResource("2_m5xt2")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.156386, 0, 0, 0, 0.112279, 0, 0, 0, 0.131511, 0, 0, 0.0169983)
+shape = SubResource("ConvexPolygonShape3D_al61j")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_7fer3")
+skeleton = NodePath("../..")

@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://bearwipgiomfa"]
+
+[ext_resource type="Script" path="res://scenes/daddy.cs" id="1_e8sqi"]
+[ext_resource type="Script" path="res://scenes/cameraPhysics.cs" id="2_b2hyh"]
+[ext_resource type="Script" path="res://scenes/cameraControll.cs" id="2_hxjp3"]
+[ext_resource type="Script" path="res://scenes/mouseTracker.cs" id="4_g8i3l"]
+[ext_resource type="Script" path="res://scenes/cameraRays.cs" id="4_ifjje"]
+[ext_resource type="PackedScene" uid="uid://cwfxb18txlaoa" path="res://antHole.tscn" id="6_722tj"]
+[ext_resource type="PackedScene" uid="uid://w80nqaiq84fw" path="res://eHill.tscn" id="8_8wpfl"]
+[ext_resource type="PackedScene" uid="uid://ctg7jepga8axt" path="res://garden.glb" id="8_skmjc"]
+[ext_resource type="PackedScene" uid="uid://c6eo0s0mrd7p8" path="res://scenes/rock.tscn" id="8_vy5p8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wb4nd"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_yi4bi"]
+sky_material = SubResource("ProceduralSkyMaterial_wb4nd")
+
+[sub_resource type="Environment" id="Environment_kwaob"]
+background_mode = 2
+sky = SubResource("Sky_yi4bi")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_dqnm2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4h471"]
+radius = 0.1
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bep0w"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_e8sqi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kwaob")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0147861, -0.0450162, 0.00301582)
+script = ExtResource("2_b2hyh")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(0.999999, -0.000253873, -0.00166375, 0.00167835, 0.223931, 0.974604, 0.000125139, -0.974605, 0.223931, 0.708071, 6.03696, 3.05134)
+near = 0.263
+script = ExtResource("4_ifjje")
+
+[node name="Control" type="Control" parent="CharacterBody3D/Camera3D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 56.0
+offset_top = 88.0
+offset_right = 96.0
+offset_bottom = 128.0
+scale = Vector2(13.2236, 12.3213)
+script = ExtResource("2_hxjp3")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CharacterBody3D/Camera3D/Control"]
+visible = false
+scale = Vector2(-11.3934, 12.6732)
+mesh = SubResource("BoxMesh_dqnm2")
+script = ExtResource("4_g8i3l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.708, 3.814, 5.833)
+shape = SubResource("SphereShape3D_4h471")
+
+[node name="Node3D" parent="." instance=ExtResource("6_722tj")]
+
+[node name="Node3D2" parent="." instance=ExtResource("8_vy5p8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48311, -0.24496, 3.32061)
+
+[node name="MeshInstance3D3" parent="Node3D2" index="0"]
+skeleton = NodePath("../../Node3D2")
+
+[node name="garden" parent="." instance=ExtResource("8_skmjc")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, -0.085989, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="garden"]
+transform = Transform3D(185.219, 0, 0, 0, 0.745664, 0, 0, 0, 194.111, 10, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="garden/StaticBody3D"]
+transform = Transform3D(2.46153, 0, 0, 0, 1, 0, 0, 0, 2.24006, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_bep0w")
+
+[node name="Node3D4" parent="." instance=ExtResource("8_8wpfl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.86851, 0, 4.37258)
+
+[connection signal="mouse_entered" from="CharacterBody3D/Camera3D/Control" to="CharacterBody3D/Camera3D/Control" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CharacterBody3D/Camera3D/Control" to="CharacterBody3D/Camera3D/Control" method="_on_mouse_exited"]
+
+[editable path="Node3D"]
+[editable path="Node3D2"]
+[editable path="Node3D4"]
