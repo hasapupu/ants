@@ -3,7 +3,7 @@ using System;
 
 public partial class cameraRays : Camera3D
 {
-
+	[Export] public resources rSO;
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -24,6 +24,13 @@ public partial class cameraRays : Camera3D
 			{
 				GD.Print("Succ");
 				var oObject = result[Variant.From<string>("collider")].AsGodotObject() as boulderOObject;
+				rSO.currentOObject = oObject.GetParent().GetParent() as Node3D;
+				oObject.initUI();
+			}
+			else if(result[Variant.From<string>("collider")].AsGodotObject().GetType().Name == "rewrittenHill")
+			{
+				var oObject = result[Variant.From<string>("collider")].AsGodotObject() as rewrittenHill;
+				rSO.currentOObject = oObject as Node3D;
 				oObject.initUI();
 			}
 		}

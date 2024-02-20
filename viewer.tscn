@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c12a6ogy528"]
+[gd_scene load_steps=6 format=3 uid="uid://c12a6ogy528"]
 
 [ext_resource type="Shader" path="res://shader/gbShader.gdshader" id="1_5h3ww"]
 [ext_resource type="PackedScene" uid="uid://bearwipgiomfa" path="res://scenes/basicLevel.tscn" id="1_kqgg6"]
 [ext_resource type="Script" path="res://tb.cs" id="4_enpgw"]
-[ext_resource type="Resource" uid="uid://bkl5c1msn3c0v" path="res://r.tres" id="5_unp5a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6amdo"]
 shader = ExtResource("1_5h3ww")
@@ -46,7 +45,6 @@ anchor_bottom = 0.035
 offset_right = 104.064
 offset_bottom = 73.32
 script = ExtResource("4_enpgw")
-rSO = ExtResource("5_unp5a")
 
 [editable path="SubViewportContainer/SubViewport/Node3D"]
 [editable path="SubViewportContainer/SubViewport/Node3D/Node3D"]

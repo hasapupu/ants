@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bua53y404hgds"]
+
+[ext_resource type="Script" path="res://rewrittenEUI.cs" id="1_51ksp"]
+[ext_resource type="Resource" uid="uid://bkl5c1msn3c0v" path="res://r.tres" id="2_4w36p"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("l1", "l2")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_51ksp")
+rSO = ExtResource("2_4w36p")
+l1 = NodePath("Label")
+l2 = NodePath("Label2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 352.0
+offset_bottom = 104.0
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 352.0
+offset_bottom = 176.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 360.0
+offset_right = 280.0
+offset_bottom = 496.0
+text = "Attack!
+"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

@@ -14,7 +14,6 @@ public partial class boulderOObject : overworldObjectBaseClass
 	protected override void handleInheritedLogic()
 	{
 		rSO.clock = GetNode<Timer>("Timer");
-		rSO.currentOObject = GetParent().GetParent() as Node3D;
 		var tempInst = runningInstance as boulderUI;
 		tempInst.antsToCollect = antsToCollect;
 	}

@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bearwipgiomfa"]
+[gd_scene load_steps=17 format=3 uid="uid://bearwipgiomfa"]
 
 [ext_resource type="Script" path="res://scenes/daddy.cs" id="1_e8sqi"]
 [ext_resource type="Script" path="res://scenes/cameraPhysics.cs" id="2_b2hyh"]
+[ext_resource type="Resource" uid="uid://bkl5c1msn3c0v" path="res://r.tres" id="2_f1s1j"]
 [ext_resource type="Script" path="res://scenes/cameraControll.cs" id="2_hxjp3"]
 [ext_resource type="Script" path="res://scenes/mouseTracker.cs" id="4_g8i3l"]
 [ext_resource type="Script" path="res://scenes/cameraRays.cs" id="4_ifjje"]
@@ -33,6 +34,7 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_e8sqi")
+rSO = ExtResource("2_f1s1j")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -49,6 +51,7 @@ script = ExtResource("2_b2hyh")
 transform = Transform3D(0.999999, -0.000253873, -0.00166375, 0.00167835, 0.223931, 0.974604, 0.000125139, -0.974605, 0.223931, 0.708071, 6.03696, 3.05134)
 near = 0.263
 script = ExtResource("4_ifjje")
+rSO = ExtResource("2_f1s1j")
 
 [node name="Control" type="Control" parent="CharacterBody3D/Camera3D"]
 layout_mode = 3
