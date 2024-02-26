@@ -28,6 +28,9 @@ public partial class resources : Resource
 	public Array<Node3D> friendlyAnts;
 	[Export]
 	public Array<Node3D> enemyAnts;
+	[Export]
+	public int friendlyIndex;
+	//Friendly index is for indexing friendly ants, NOT for friendly ants to use!!!!!!!!!
 	public resources()
 	{
 		hillHealth = 100;
@@ -41,5 +44,6 @@ public partial class resources : Resource
 		index = 0;
 		friendlyAnts = new Array<Node3D>();
 		enemyAnts = new Array<Node3D>();
+		friendlyIndex = 0;
 	}
 }

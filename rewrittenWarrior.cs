@@ -10,7 +10,7 @@ public partial class rewrittenWarrior : CharacterBody3D
 
     public override void _Ready()
     {
-        target = rSO.currentSelectedOObject.GlobalPosition;
+        target = rSO.currentOObject.GlobalPosition;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -18,7 +18,7 @@ public partial class rewrittenWarrior : CharacterBody3D
         switch(state)
         {
             case wAntState.MARCHING:
-                Velocity = target;
+                Velocity = target / 3;
                 MoveAndSlide();
                 LookAt(target);
                 break;

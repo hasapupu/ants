@@ -9,11 +9,11 @@ public partial class rewrittenEUI : Control
 
 	public void _on_button_button_down()
 	{
-		for(int i = 0; i < rSO.ants["Worker Ant"]; i++)
+		for(int i = 0; i < rSO.ants["Warrior Ant"]; i++)
 		{
 			var rnd = new RandomNumberGenerator();
 			PackedScene antScene;
-			antScene = ResourceLoader.Load<PackedScene>("res://rewrittenWarrior.tscn");
+			antScene = ResourceLoader.Load<PackedScene>("res://warriorAnt.tscn");
 			var antNode = antScene.Instantiate<Node>();
 			GetTree().CurrentScene.GetNode("SubViewportContainer/SubViewport/Node3D").AddChild(antNode);
 			var antInstance = antNode as rewrittenWarrior;
