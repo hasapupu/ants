@@ -21,6 +21,12 @@ public partial class enemyAnt : CharacterBody3D
                 MoveAndSlide();
                 LookAt(rSO.currentOObject.GlobalPosition);
                 break;
+
+            case enemyAntModes.ATTACKING:
+                Velocity = new Vector3(0,0,0);
+                break;
+
+            
         }
     }
 }

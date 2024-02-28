@@ -16,6 +16,7 @@ public partial class rewrittenEUI : Control
 			antScene = ResourceLoader.Load<PackedScene>("res://warriorAnt.tscn");
 			var antNode = antScene.Instantiate<Node>();
 			GetTree().CurrentScene.GetNode("SubViewportContainer/SubViewport/Node3D").AddChild(antNode);
+			rSO.friendlyAnts.Add(antNode as Node3D);
 			var antInstance = antNode as rewrittenWarrior;
 			antInstance.Position = new Vector3(rnd.Randfn(-1,1)/2,0.12f,rnd.Randfn(-1,1)/2);
 		}

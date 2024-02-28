@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://w80nqaiq84fw"]
+[gd_scene load_steps=6 format=3 uid="uid://w80nqaiq84fw"]
 
 [ext_resource type="Script" path="res://rewrittenHill.cs" id="1_swfw4"]
+[ext_resource type="Resource" uid="uid://bkl5c1msn3c0v" path="res://r.tres" id="2_3ngjx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0e8wc"]
 
@@ -17,6 +18,7 @@ mesh = SubResource("BoxMesh_0e8wc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" groups=["Enemy hill"]]
 script = ExtResource("1_swfw4")
+rSO = ExtResource("2_3ngjx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_rnmd2")

@@ -16,3 +16,4 @@ isBusy = false
 index = 0
 friendlyAnts = null
 enemyAnts = null
+friendlyIndex = 0

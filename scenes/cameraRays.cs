@@ -11,7 +11,6 @@ public partial class cameraRays : Camera3D
 		var start = ProjectRayOrigin(GetViewport().GetMousePosition());
 		var end = ProjectPosition(GetViewport().GetMousePosition(), 1000);
 		var result = spaceState.IntersectRay(PhysicsRayQueryParameters3D.Create(start,end));
-		GD.Print(result[Variant.From<string>("collider")].AsGodotObject().GetType().Name);
 		if(Input.IsMouseButtonPressed(MouseButton.Left))
 		{
 			if(result[Variant.From<string>("collider")].AsGodotObject().GetType().Name == "overworldObjectBaseClass")

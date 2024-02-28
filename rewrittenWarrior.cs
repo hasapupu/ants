@@ -34,7 +34,6 @@ public partial class rewrittenWarrior : CharacterBody3D
                 break;
             
             case wAntState.MINING:
-
                 break;
 
             case wAntState.RETURNING:

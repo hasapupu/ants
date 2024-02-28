@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c18fa1rum0at1"]
+[gd_scene load_steps=5 format=3 uid="uid://c18fa1rum0at1"]
 
 [ext_resource type="Script" path="res://enemyAnt.cs" id="1_4qva3"]
+[ext_resource type="Resource" uid="uid://bkl5c1msn3c0v" path="res://r.tres" id="2_gkkto"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w0nep"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
@@ -9,6 +10,7 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 
 [node name="Node3D" type="CharacterBody3D"]
 script = ExtResource("1_4qva3")
+rSO = ExtResource("2_gkkto")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.170823, 0, 0, 0, 0.144426, 0, 0, 0, 0.510168, 0, 0, 0)
