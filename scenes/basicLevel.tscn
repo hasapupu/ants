@@ -32,9 +32,10 @@ radius = 0.1
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bep0w"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("debugIndex")]
 script = ExtResource("1_e8sqi")
 rSO = ExtResource("2_f1s1j")
+debugIndex = []
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -93,6 +94,9 @@ shape = SubResource("ConvexPolygonShape3D_bep0w")
 
 [node name="Node3D4" parent="." instance=ExtResource("8_8wpfl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.86851, 0, 4.37258)
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.628241, 0.0544086, 0.444552)
 
 [connection signal="mouse_entered" from="CharacterBody3D/Camera3D/Control" to="CharacterBody3D/Camera3D/Control" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CharacterBody3D/Camera3D/Control" to="CharacterBody3D/Camera3D/Control" method="_on_mouse_exited"]

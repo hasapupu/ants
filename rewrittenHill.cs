@@ -25,6 +25,11 @@ public partial class rewrittenHill : overworldObjectBaseClass
         temp.GlobalPosition = GlobalPosition - new Vector3(1,0,0);
 			  rSO.enemyAnts.Add(antNode as Node3D);
       }
+			foreach(var wAnt in rSO.friendlyAnts)
+			{
+				rewrittenWarrior wIn = wAnt as rewrittenWarrior;
+				wIn.state = wAntState.HUNTING;
+			}
     }
   }
 }
