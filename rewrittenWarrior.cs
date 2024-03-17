@@ -30,11 +30,11 @@ public partial class rewrittenWarrior : CharacterBody3D
             case wAntState.HUNTING:
                 Velocity = father.enemyCurrentPos / 3;
                 MoveAndSlide();
-                LookAt(father.enemyCurrentPos);
+                LookAt(rSO.enemyAnts[rSO.index].GlobalPosition);
                 break;
 
             case wAntState.FIGHTING:
-                LookAt(father.enemyCurrentPos);
+                LookAt(rSO.enemyAnts[rSO.index].GlobalPosition);
                 Velocity = new Vector3(0,0,0);
                 break;
             

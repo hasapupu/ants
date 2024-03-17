@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bldx5d4ca6erg"]
+
+[ext_resource type="PackedScene" uid="uid://ch5hce41ngjt7" path="res://models/worker.obj" id="1_11yvs"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="worker" parent="." instance=ExtResource("1_11yvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)

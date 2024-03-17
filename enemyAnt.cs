@@ -32,13 +32,13 @@ public partial class enemyAnt : CharacterBody3D
             case enemyAntModes.MARCHING:
                 Velocity = father.friendlyCurrentPos / 3;
                 MoveAndSlide();
-                LookAt(father.friendlyCurrentPos);
+                LookAt(rSO.friendlyAnts[rSO.friendlyIndex].GlobalPosition);
                 break;
             
             case enemyAntModes.RETURNING:
                 Velocity = rSO.currentOObject.GlobalPosition / 3;
                 MoveAndSlide();
-                LookAt(rSO.currentOObject.GlobalPosition);
+                LookAt(rSO.friendlyAnts[rSO.friendlyIndex].GlobalPosition);
                 break;
 
             case enemyAntModes.ATTACKING:
