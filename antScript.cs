@@ -6,7 +6,14 @@ public partial class antScript : CharacterBody3D
 	[Export] public Node3D targetPos;
 	[Export] public resources rSO;
 	protected bool isTaskCompleted = false;
+	[Export] public AnimationPlayer anim;
 	
+	public override void _Ready()
+	{
+		anim = GetNode<AnimationPlayer>("Node3D/AnimationPlayer");
+		anim.Play("walkingWorkerAnt");
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
 		if(targetPos.Visible == false)
@@ -34,4 +41,13 @@ public partial class antScript : CharacterBody3D
 	
 	protected virtual void inheritedCollider(Node node)
 	{}
+
+	void _on_animation_player_animation_finished(StringName anim_name)
+	{
+		if(anim_name == "walkingWorkerAnt")
+		{
+			GD.Print("animstarted");
+			anim.Play("walkingWorkerAnt");
+		}
+	}
 }

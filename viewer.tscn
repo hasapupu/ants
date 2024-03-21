@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c12a6ogy528"]
+[gd_scene load_steps=7 format=3 uid="uid://c12a6ogy528"]
 
 [ext_resource type="Shader" path="res://shader/gbShader.gdshader" id="1_5h3ww"]
 [ext_resource type="PackedScene" uid="uid://bearwipgiomfa" path="res://scenes/basicLevel.tscn" id="1_kqgg6"]
@@ -12,21 +12,7 @@ shader_parameter/dithering = true
 shader_parameter/colors = 6
 shader_parameter/dither_size = 2
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wb4nd"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_yi4bi"]
-sky_material = SubResource("ProceduralSkyMaterial_wb4nd")
-
-[sub_resource type="Environment" id="Environment_kwaob"]
-background_mode = 2
-sky = SubResource("Sky_yi4bi")
-tonemap_mode = 2
-glow_enabled = true
-
 [sub_resource type="World3D" id="World3D_cnoq3"]
-environment = SubResource("Environment_kwaob")
 
 [node name="Control" type="Control"]
 layout_mode = 3
